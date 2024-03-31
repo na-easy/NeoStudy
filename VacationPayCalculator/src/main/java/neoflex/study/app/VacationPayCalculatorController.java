@@ -15,8 +15,6 @@ public class VacationPayCalculatorController {
         this.service = service;
     }
 
-    // http://localhost:8080/calculate?salary=30000&vacation=10&vacationStart=01.04.2023&vacationEnd=10.04.2024
-    //
     @GetMapping("/calculate")
     public String getVacationPay(@RequestParam("salary") double salary,
                                  @RequestParam("vacation") int vacation,
