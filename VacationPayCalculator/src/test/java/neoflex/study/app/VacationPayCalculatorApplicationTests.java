@@ -15,19 +15,19 @@ class VacationPayCalculatorApplicationTests {
     @Test
     public void testCalculateVacationPayWithValidDates() {
         double salary = 1000000.0;
-        int vacation = 20;
+        int vacation = 10;
         String vacationStart = "01.01.2023";
         String vacationEnd = "10.01.2023";
 
         String result = service.calculateVacationPay(salary, vacation, vacationStart, vacationEnd);
 
-        assertEquals("32876.64", result);
+        assertEquals("5479.44", result);
     }
 
     @Test
     public void testCalculateVacationPayWithInvalidDates() {
         double salary = 1000000.0;
-        int vacation = 20;
+        int vacation = 10;
         String vacationStart = "04.05.2023";
         String vacationEnd = "01.02.2023";
 
@@ -39,7 +39,7 @@ class VacationPayCalculatorApplicationTests {
     @Test
     public void testCalculateVacationPayWithNegativeSalary() {
         double salary = -1000000.0;
-        int vacation = 20;
+        int vacation = 10;
         String vacationStart = "01.01.2023";
         String vacationEnd = "14.01.2023";
 
@@ -51,7 +51,7 @@ class VacationPayCalculatorApplicationTests {
     @Test
     public void testCalculateVacationPayWithNegativeVacation() {
         double salary = 1000000.0;
-        int vacation = -20;
+        int vacation = -10;
         String vacationStart = "01.01.2023";
         String vacationEnd = "10.01.2023";
 
@@ -63,9 +63,9 @@ class VacationPayCalculatorApplicationTests {
     @Test
     public void testCalculateVacationPayWithInvalidEndDate() {
         double salary = 1000000.0;
-        int vacation = 20;
+        int vacation = 10;
         String vacationStart = "01.01.2023";
-        String vacationEnd = "10.01.2023fd";
+        String vacationEnd = "10.01.2023aa";
 
         String result = service.calculateVacationPay(salary, vacation, vacationStart, vacationEnd);
 
@@ -75,8 +75,8 @@ class VacationPayCalculatorApplicationTests {
     @Test
     public void testCalculateVacationPayWithInvalidStartDate() {
         double salary = 1000000.0;
-        int vacation = 20;
-        String vacationStart = "01d.01.2023";
+        int vacation = 10;
+        String vacationStart = "01a.01.2023";
         String vacationEnd = "10.01.2023";
 
         String result = service.calculateVacationPay(salary, vacation, vacationStart, vacationEnd);
