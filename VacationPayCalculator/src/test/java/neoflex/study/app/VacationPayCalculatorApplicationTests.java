@@ -83,5 +83,17 @@ class VacationPayCalculatorApplicationTests {
 
         assertEquals("Неверная начальная дата отпуска", result);
     }
+    
+    @Test
+    public void testCalculateVacationPayWithInvalidDate() {
+        double salary = 1000000.0;
+        int vacation = 20;
+        String vacationStart = "01.01.2023";
+        String vacationEnd = "10.01.2023";
+
+        String result = service.calculateVacationPay(salary, vacation, vacationStart, vacationEnd);
+
+        assertEquals("vacation и количество дней между датами не совпадает", result);
+    }
 
 }
