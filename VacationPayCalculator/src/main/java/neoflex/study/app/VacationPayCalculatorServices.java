@@ -2,7 +2,6 @@ package neoflex.study.app;
 
 import org.springframework.stereotype.Service;
 
-import java.time.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.MonthDay;
@@ -68,13 +67,13 @@ public class VacationPayCalculatorServices {
         if (!LocalDate.parse(vacationStart, formatter).isBefore(LocalDate.parse(vacationEnd, formatter)))
             return "Начальная дата должна быть меньше конечной";
         if (vacation != numberOfDays(LocalDate.parse(vacationStart, formatter), LocalDate.parse(vacationEnd, formatter)))
-        	return "vacation и количество дней между дата не совпадает";
+        	return "vacation и количество дней между датами не совпадает";
 
         long yearSalary = (long)(salary * 100);
         long daySalary = yearSalary / 365;
         long resVacation = daySalary * (vacation - numberOfUnpaidDays(LocalDate.parse(vacationStart, formatter), LocalDate.parse(vacationEnd, formatter)));
 
-        return ("Отпускные: " + String.valueOf(resVacation));
+        return ("Отпускные: " + String.valueOf((double) resVacation / 100));
     }
 
     public String calculateVacationPay(double salary, int vacation) {
@@ -86,7 +85,7 @@ public class VacationPayCalculatorServices {
         long daySalary = yearSalary / 365;
         long resVacation = daySalary * vacation;
 
-        return ("Отпускные: " + String.valueOf(resVacation));
+        return ("Отпускные: " + String.valueOf((double) resVacation / 100));
     }
 
 }
